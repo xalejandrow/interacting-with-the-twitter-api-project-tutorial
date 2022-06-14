@@ -2,7 +2,7 @@
 # Integrating with the Twitter API Project Tutorial
 <!-- endhide -->
 
-1. Create a Twitter developer API.
+1. Create a Twitter developer application using the Twitter Developer Portal.
 2. Connect with the Twitter API 
 3. Retrieve and download data from the Twitter API.
 4. Create a python pandas dataframe for easier manipulation of the data.
