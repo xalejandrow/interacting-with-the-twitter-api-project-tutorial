@@ -113,7 +113,7 @@ client = tweepy.Client( bearer_token=bearer_token,
 
 **Step 6:** 
 
-Make a query. Search tweets that have the hashtag #100daysofcode and the word python or react, from the last 7 days (search_recent_tweets). 
+Make a query. Search tweets that have the hashtag #100daysofcode and the word python or pandas, from the last 7 days (search_recent_tweets). 
 
 Do not include retweets. Limit the result to a maximum of 100 Tweets.
 
@@ -124,7 +124,7 @@ You can use this link for guidance on how to create the query: https://developer
 
 ```python
 # Define query
-query = '#100daysofcode (react OR python) -is:retweet'
+query = '#100daysofcode (pandas OR python) -is:retweet'
 
 # get max. 100 tweets
 tweets = client.search_recent_tweets(query=query, 
@@ -171,7 +171,7 @@ df.to_csv("coding-tweets.csv")
 
 **Step 10:** 
 
-Now that you have your DataFrame of tweets set up, you're going to do a bit of text analysis to count how many tweets contain the words 'react', and 'python'. Define the following function word_in_text(), which will tell you whether the first argument (a word) occurs within the 2nd argument (a tweet). 
+Now that you have your DataFrame of tweets set up, you're going to do a bit of text analysis to count how many tweets contain the words 'pandas', and 'python'. Define the following function word_in_text(), which will tell you whether the first argument (a word) occurs within the 2nd argument (a tweet). 
 
 >Make sure to convert any word or tweet text into lowercase.
 >You can use the re python library (regular expression operations). See the documentation for guidance: https://docs.python.org/3/library/re.html#
@@ -196,16 +196,16 @@ def word_in_text(word, text):
 
 **Step 11:**
 
-Iterate through dataframe rows counting the number of tweets in which react and python are mentioned, using your word_in_text() function.
+Iterate through dataframe rows counting the number of tweets in which pandas and python are mentioned, using your word_in_text() function.
 
 
 ```python
 # Initialize list to store tweet counts
-[react, python] = [0, 0]
+[pandas, python] = [0, 0]
 
-# Iterate through df, counting the number of tweets in which each(react and python) is mentioned.
+# Iterate through df, counting the number of tweets in which each(pandas and python) is mentioned.
 for index, row in df.iterrows():
-    react += word_in_text('react', row['text'])
+    pandas += word_in_text('pandas', row['text'])
     python += word_in_text('python', row['text'])
 ```
 
@@ -223,10 +223,10 @@ import seaborn as sns
 sns.set(color_codes=True)
 
 # Create a list of labels:cd
-cd = ['react', 'python']
+cd = ['pandas', 'python']
 
 # Plot the bar chart
-ax = sns.barplot(cd, [react, python])
+ax = sns.barplot(cd, [pandas, python])
 ax.set(ylabel="count")
 plt.show()
 ```

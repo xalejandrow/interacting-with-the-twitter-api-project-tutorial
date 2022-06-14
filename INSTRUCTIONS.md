@@ -36,7 +36,7 @@ ACCESS_TOKEN_SECRET="insert your access token secret"
 BEARER_TOKEN="insert your bearer token"
 ```
 
->Important: Make sure to add the .env inside your .gitignore file, which is not saved to source control, so that you aren't putting potentially sensitive information at risk. 
+> Important: Make sure to add the .env inside your .gitignore file, which is not saved to source control, so that you aren't putting potentially sensitive information at risk. 
 
 Now, you need to install python-dotenvpackage. python-dotenv is a Python package that lets your Python app read a .env file. This package will search for a .env and if it finds one, will expose the variables in it to the app.
 
@@ -60,27 +60,22 @@ To set password or secret keys in environment variable on Linux(and Mac) or Wind
 
 ### Step 4: Innitialize the tweepy library
 
-- Import Tweepy
-- Make a connection with API v2. Use the variables in the function tweepy.Client(). Use the following documentation for guidance on the parameters: https://docs.tweepy.org/en/stable/client.html
+- Import Tweepy and [requests library](https://requests.readthedocs.io/en/latest/)
+- Make a connection with API v2. Use the variables in the function `tweepy.Client()`. 
 
-
-```python
-# import requests
-# Use tweepy.Client()
-```
+> Use the following documentation for guidance on the parameters: https://docs.tweepy.org/en/stable/client.html
 
 ### Step 5: Start making requests to the API
 
-- Make a query: Search tweets that have the hashtag #100daysofcode and the word python or react, from the last 7 days (search_recent_tweets). 
+- Make a query: Search tweets that have the hashtag #100daysofcode and the word python or pandas, from the last 7 days (search_recent_tweets). 
 - Do not include retweets. Limit the result to a maximum of 100 Tweets.
 - Also include some additional information with tweet_fields (author id, when the tweet was created, the language of the tweet text).
 
 You can use this link for guidance on how to create the query: https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query
 
 
-```python
-# Define query
-# get max. 100 tweets
+1. Define query
+2. Get a max. 100 tweets (it's the max allowed by the twitter API)
 ```
 
 ### Step 6: Convert to pandas Dataframe
@@ -89,60 +84,35 @@ You can use this link for guidance on how to create the query: https://developer
 2. Save data as dictionary
 3. Extract "data" value from dictionary
 4. Transform to pandas Dataframe
-5. Take a look at the dataframe
+5. Take a look at the dataframe to make sure is correct `df.head()`
 6. Save the data as a CSV file named coding-tweets.csv
 
 
-### Step 7:
+### Step 7: Search for the words
 
-Now that you have your DataFrame of tweets set up, you're going to do a bit of text analysis to count how many tweets contain the words 'react', and 'python'. Define the following function word_in_text(), which will tell you whether the first argument (a word) occurs within the 2nd argument (a tweet). 
+Now that you have your DataFrame of tweets set up, you're going to do a bit of text analysis to count how many tweets contain the words 'pandas', and 'python'. Define the following function word_in_text(), which will tell you whether the first argument (a word) occurs within the 2nd argument (a tweet). 
 
->Make sure to convert any word or tweet text into lowercase.
->You can use the re python library (regular expression operations). See the documentation for guidance: https://docs.python.org/3/library/re.html#
-
-
-
-```python
-#import re
+> Make sure to convert any word or tweet text into lowercase.
+> You can use the re python library (regular expression operations). See the documentation for guidance: https://docs.python.org/3/library/re.html#
 
 
-#define your function here
+1. import de `re` library using `import re`
+2. Define your `word_in_text` function and implement the code.
 
 
-```
+### Step 11:
 
-**Step 11:**
+Iterate through dataframe rows counting the number of tweets in which pandas and python are mentioned, using your word_in_text() function.
 
-Iterate through dataframe rows counting the number of tweets in which react and python are mentioned, using your word_in_text() function.
+1. Initialize list to store tweet counts
+2. Iterate through df, counting the number of tweets in which each(pandas and python) is mentioned.
 
+### Step 12: Visualize the data
 
-```python
-# Initialize list to store tweet counts
-
-
-# Iterate through df, counting the number of tweets in which each(react and python) is mentioned.
-
-```
-
-**Step 12:** 
-
-Visualize the data
-
-
-```python
-# Import packages
-
-
-# Set seaborn style
-
-
-# Create a list of labels:cd
-
-
-# Plot the bar chart
-
-
-```
+1. Import packages
+2. Set seaborn style
+3. Create a list of labels:cd
+4. Plot the bar chart
 
 Source: 
 
