@@ -9,5 +9,5 @@
 	"difficulty": "beginner",
 	"syntax": "python",
 	"duration" : 2,
-	"description" : ""
+	"description" : "Connect with the Twitter API, retrieve the data and save it into a python pandas dataframe for easier manipulation and into a SQL database."
 }
