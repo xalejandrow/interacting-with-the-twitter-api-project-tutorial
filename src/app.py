@@ -28,7 +28,14 @@ tweets = client.search_recent_tweets(query=query,
                                     tweet_fields=['author_id','created_at','lang'],
                                      max_results=100)
 
-
-
-
 # your app code here
+
+tweets_json=tweets.json()
+#print(tweets_json)
+tweets_data = tweets_json['data']
+df = pd.json_normalize(tweets_data)
+print(df)
+
+df.to_csv('assets/tweets.csv')
+# crear una carpeta data
+#df.to_csv('data/tweets.csv')
