@@ -1,5 +1,5 @@
 import os
-import request 
+import requests
 import tweepy
 import pandas as pd 
 from dotenv import load_dotenv
@@ -8,9 +8,9 @@ from dotenv import load_dotenv
 # load the .env file variables
 load_dotenv()
 
-consumer_key = os.env.get("CONSUMER_KEY")
-consumer_secret = os.env.get("CONSUMER_SECRET")
-bearer_token= os.env.get("BEARER_TOKEN")
+consumer_key = os.getenv("CONSUMER_KEY")
+consumer_secret = os.getenv("CONSUMER_SECRET")
+bearer_token= os.getenv("BEARER_TOKEN")
 
 # Creando cliente de Twitter
 
